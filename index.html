@@ -1,0 +1,63 @@
+<html>
+<head>
+<title> Colour CHanging App by Garv Hemnani </title>
+<style> *{ font-size : 55px; } </style>
+</head>
+<body>
+<center>
+<h1> Colour Application </h1>
+<form onsubmit = "check()">
+<input type = "number" placeholder = "Enter your Number" id = "num" />
+<br><br>
+<input type = "submit" value = "M1" class = "btn" />
+<input type = "submit" value = "M2" class = "btn" />
+<input type = "submit" value = "M3" class = "btn" />
+</form>
+<h2 id = "msg"> </h2>
+<script>
+	function check() {
+		event.preventDefault();
+		let num = document.getElementById("num");
+		let msg = document.getElementById("msg");
+
+		if (num.value == "") {
+			alert("You did not enter a number");
+			msg.innerHTML = "";
+			num.focus();
+			return;
+		}
+		
+		let n = parseInt(num.value);
+		let ele = document.activeElement.value;
+		
+		if (ele == "M1") {
+			let ans = n%2 == 0 ? "Even" : "Odd";
+			msg.innerHTML = "M1 ---> " + ans;
+		}
+
+		else if (ele == "M2") {
+			let ans = "";
+			if (n%2 == 0)
+				ans = "Even";
+			else
+				ans = "Odd";
+
+			msg.innerHTML = "M2 ---> " + ans;
+		}
+
+		else if (ele == "M3") {
+			let ans = "";
+			switch(n % 2)
+			{
+				case 0 :  ans = "Even"; break;
+				case 1 :  ans = "Odd"; break;
+				case -1 : ans = "Odd"; break;
+			}
+			msg.innerHTML= "M3 ---> " + ans;
+		}
+	}
+</script>
+</center>
+</body>
+</html>
+
